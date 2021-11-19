@@ -1,6 +1,9 @@
+// You never need to import React module but in old
+// project they used to import.
+// import React from 'react';
 import './ExpenseDate.css';
 
-function ExpenseDate(props) {
+const ExpenseDate = (props) => {
     const month = props.date.toLocaleString('en-US', { month: 'long' });
     const year = props.date.getFullYear();
     const day = props.date.toLocaleString('en-US', { day: '2-digit' });

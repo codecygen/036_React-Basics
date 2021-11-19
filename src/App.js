@@ -1,6 +1,9 @@
-import Expenses from "./components/Expenses";
+// You never need to import React module but in old
+// project they used to import.
+// import React from 'react';
+import Expenses from "./components/Expenses/Expenses";
 
-function App() {
+const App = () => {
   const expenses = [
     {
       id: 'e1',
