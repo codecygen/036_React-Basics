@@ -79,6 +79,7 @@ const ExpenseForm = (props) => {
         // This function is passed from "NewExpense.js" to pass expenseData
         // To the parent component
         props.onSaveExpenseData(expenseData);
+        props.hideExpenseForm(false);
 
         // This section sets the changes back to
         // their original state, then we can use
@@ -90,6 +91,10 @@ const ExpenseForm = (props) => {
         setEnteredAmount('');
         setEnteredDate('');
     };
+
+    const cancelButtonHandler = () => {
+        props.hideExpenseForm(false);
+    }
 
     return(
         <form onSubmit={submitHandler}>
@@ -107,7 +112,7 @@ const ExpenseForm = (props) => {
                     <input type="date" min="2019-01-01" max="2022-12-31" value={enteredDate} onChange={dateChangeHandler} />
                 </div>
                 <div className="new-expense__actions">
-                    <button type="reset">Cancel</button>
+                    <button type="reset" onClick={cancelButtonHandler}>Cancel</button>
                     <button type="submit">Add Expense</button>
                 </div>
             </div>

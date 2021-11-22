@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import ExpenseForm from './ExpenseForm';
 import './NewExpense.css';
 
@@ -13,9 +13,30 @@ const NewExpense = (props) => {
         props.onAddExpense(expenseData);
     }
 
+    const [isFormShown, setIsFormShown] = useState(false);
+
+    const handleAddNewExpenseButton = event => {
+        event.preventDefault();
+        setIsFormShown(true);
+    }
+
+    const hideExpenseFormFunction = (booleanResult) => {
+        setIsFormShown(booleanResult);
+    }
+
+    if (isFormShown === false) {
+        return (
+            <div className="new-expense">
+                <form onSubmit={handleAddNewExpenseButton}>
+                    <button type="submit">Add New Expense</button>
+                </form>
+            </div>
+        );
+    }
+
     return (
         <div className="new-expense">
-            <ExpenseForm onSaveExpenseData={saveExpenseDataHandler} />
+            <ExpenseForm hideExpenseForm={hideExpenseFormFunction} onSaveExpenseData={saveExpenseDataHandler} />
         </div>
     );
 }

@@ -22,18 +22,16 @@ const Expenses = (props) => {
     });
 
     return (
-        <li>
-            <Card className="expenses">
-                {/* Expenses Filter is a controlled component, the selected value
+        <Card className="expenses">
+            {/* Expenses Filter is a controlled component, the selected value
                 and handling fundtion is both controlled in the parent component "Expense.js"
                 rather than "ExpenseFilter.js" 
                 If there was no controlled stuff then ExpenseFilter would be an uncontrolled
                 component. */}
-                <ExpensesFilter selected={filteredYear} onFilterData={onFilterDataHandler} />
+            <ExpensesFilter selected={filteredYear} onFilterData={onFilterDataHandler} />
 
-                <ExpensesList items={filteredExpenses} />
-            </Card>
-        </li>
+            <ExpensesList items={filteredExpenses} />
+        </Card>
     );
 }
 
