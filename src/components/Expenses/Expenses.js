@@ -4,6 +4,7 @@ import React, { useState } from 'react';
 import Card from '../UI/Card';
 import ExpensesFilter from './ExpensesFilter';
 import ExpensesList from './ExpensesList';
+import ExpensesChart from './ExpensesChart';
 import './Expenses.css';
 
 const Expenses = (props) => {
@@ -29,7 +30,7 @@ const Expenses = (props) => {
                 If there was no controlled stuff then ExpenseFilter would be an uncontrolled
                 component. */}
             <ExpensesFilter selected={filteredYear} onFilterData={onFilterDataHandler} />
-
+            <ExpensesChart expenses={filteredExpenses} />
             <ExpensesList items={filteredExpenses} />
         </Card>
     );
